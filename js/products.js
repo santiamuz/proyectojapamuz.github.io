@@ -7,33 +7,40 @@ let arrayAutos = [];
 
 //Función que recibe el array del JSON y los muestra en pantalla usando DOM
 
-function mostrarAutos(autos){
+function mostrarAutos(array){
     let htmlContentToAppend = "";
 
-    for (i=0; i<autos.length; i++){
-        let auto = autos[i];
+    console.log("antes del bucle");
+    
+    for (let i = 0; i < array.products.length; i++){      
+        let cats_products = array.products[i];
+
+        console.log("si llega acá es pq entró al for");
+    
+
         htmlContentToAppend += ` 
-        <div onclick="setCatID(${auto.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${auto.imgSrc}" alt="${auto.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${auto.name}</h4>
-                            <small class="text-muted">${auto.productCount} artículos</small>
+            <div class= "list-group-item list-group-item-action" >
+            <div class="row">
+                <div class="col-3">
+                    <img src= " `+ cats_products.image +` " alt= "product image" class= "img-thumbnail" ></img>
+                </div> 
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mb-1">
+                        <h4> `+ cats_products.name + " - "+ cats_products.currency + ` ` + cats_products.cost + ` ` + ` </h4> 
+                        <p> `+ cats_products.description +`</p> 
                         </div>
-                        <p class="mb-1">${auto.description}</p>
+                        <small class="text-muted">` + cats_products.soldCount + ` artículos</small> 
                     </div>
+
                 </div>
             </div>
-        
+        </div>
+      
         `
+       document.getElementById("autos").innerHTML = htmlContentToAppend;
 
-        document.getElementById("autos").innerHTML = htmlContentToAppend;
-    }
-
-}
+        
 
 //función que ejecuta lo anterior junto con el fetch ya  definido en init.js
 

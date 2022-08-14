@@ -214,3 +214,14 @@ h1{
   background-color: cornflowerblue;
   cursor: pointer;
 }
+
+#productos{
+  margin: 0.7em;
+}
+
+#sub{
+  text-align: center;
+  font-family: Raleway;
+  font-weight: lighter;
+  margin-bottom: 1.5em;
+}
